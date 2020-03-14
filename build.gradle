@@ -31,9 +31,11 @@ dependencies {
     testImplementation (
             ['org.junit.jupiter:junit-jupiter:' + junitJupiter],
             ['org.seleniumhq.selenium:selenium-java:' + seleniumJava],
-            ['io.github.bonigarcia:selenium-jupiter:' + bonyGarciaSeleniumjupiter],
             ['org.slf4j:slf4j-log4j12:' + log4j12]
     )
+    testImplementation ('io.github.bonigarcia:selenium-jupiter:' + bonyGarciaSeleniumjupiter) {
+        exclude group: 'ch.qos.logback', module: 'logback-classic'
+    }
 }
 
 test {
