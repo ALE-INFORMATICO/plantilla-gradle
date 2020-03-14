@@ -17,7 +17,7 @@ public class testMethods {
         File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
 
         //Move image file to new destination
-        File DestFile=new File("./target/surefire-reports/"+ fileWithPath +".png");
+        File DestFile=new File("./build/images/"+ fileWithPath +".png");
 
         //Copy file at destination
         FileUtils.copyFile(SrcFile, DestFile);

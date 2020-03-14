@@ -1,10 +1,11 @@
 import cl.falabella.gradle.loginPO;
-import org.apache.log4j.PropertyConfigurator;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
+import org.apache.log4j.PropertyConfigurator;
+import org.apache.log4j.Logger;
 
 import static cl.falabella.Utils.testMethods.takeSnapShot;
 
@@ -14,6 +15,7 @@ public class seleniumTest {
 
     WebDriver driver;
     loginPO loginPO;
+    Logger log = Logger.getLogger(seleniumTest.class);
 
     @BeforeAll
     public void SetUp() {
@@ -37,6 +39,7 @@ public class seleniumTest {
     public void IniciaChrome() {
         driver.get("https://www.google.cl");
         loginPO.getCampoDeBusqueda().sendKeys("Apple");
+        log.info("Se ingresa la palabra apple al cuadro de búsqueda");
     }
 
     @Test
@@ -44,6 +47,7 @@ public class seleniumTest {
     @DisplayName("Hacer click en botón de búsqueda")
     public void haceClick() {
         loginPO.getBtnBusqueda().click();
+        log.info("Se hace click en botón de búsqueda");
     }
 
     @AfterAll
